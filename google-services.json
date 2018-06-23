@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "884922975798",
+    "firebase_url": "https://foodlogic-31e18.firebaseio.com",
+    "project_id": "foodlogic-31e18",
+    "storage_bucket": "foodlogic-31e18.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884922975798:android:ef22d61545632a5f",
+        "android_client_info": {
+          "package_name": "com.hexcode.foodlogic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884922975798-u059i3s74rr5j7gg6ttgbrkvta65mbbr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hexcode.foodlogic",
+            "certificate_hash": "436d99b8a3d61dfa16b2b711287ba0aa2fe25bbb"
+          }
+        },
+        {
+          "client_id": "884922975798-6h7055gmmq7er2mn1q3kcnj44e9b018m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlpNWatYzqXIRphuQDA3pp4PsNa_k3oq4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884922975798-6h7055gmmq7er2mn1q3kcnj44e9b018m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
