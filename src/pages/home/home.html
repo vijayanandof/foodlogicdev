@@ -1,15 +1,54 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Today's Menu
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="logMeOut()">
+        <ion-icon  ios="ios-log-out" md="md-log-out"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  We'll be testing the log out button.
-
-  <button ion-button color="positive" block (click)="logMeOut()">
-    Log Me Out Please
-  </button>
+ <h3>Hi! Happy {{today}}!</h3> <br>
+ Today's menu is,
+ <br>
+ <ion-card>
+  <ion-card-header>
+ <b>Breakfast</b>
+</ion-card-header>
+<ion-card-content>
+ <ul>
+  <li *ngFor="let item of breakfast | async">
+     {{ item }}
+  </li>
+</ul>
+</ion-card-content>
+</ion-card>
+<ion-card>
+  <ion-card-header>
+<b>Lunch</b>
+</ion-card-header>
+<ion-card-content>
+<ul>
+ <li *ngFor="let item of lunch | async">
+    {{ item }}
+ </li>
+</ul>
+</ion-card-content>
+</ion-card>
+<ion-card>
+  <ion-card-header>
+<b>Dinner</b>
+</ion-card-header>
+<ion-card-content>
+<ul>
+ <li *ngFor="let item of dinner | async">
+    {{ item }}
+ </li>
+</ul>
+</ion-card-content>
+</ion-card>
 </ion-content>

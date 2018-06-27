@@ -6,9 +6,10 @@ import {
   LoadingController,
   AlertController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HomePage } from '../home/home';
+//import { HomePage } from '../home/home';
 import { AuthProvider } from '../../providers/auth/auth';
 import { EmailValidator } from '../../validators/email';
+import { TabsPage } from '../tabs/tabs';
 
 @IonicPage()
 @Component({
@@ -35,7 +36,7 @@ export class LoginPage {
       this.authProvider.loginUser(this.loginForm.value.email, this.loginForm.value.password)
       .then( authData => {
         this.loading.dismiss().then( () => {
-          this.navCtrl.setRoot(HomePage);
+          this.navCtrl.setRoot(TabsPage);
         });
       }, error => {
         this.loading.dismiss().then( () => {

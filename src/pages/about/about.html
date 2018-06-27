@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Full Menus
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<b>Monday</b>
+    <ul>
+        <li *ngFor="let item of monday | async;">
+           {{ item | json }}
+        </li>
+      </ul>
+      <br>
+<b>Tuesday</b>
+<ul>
+    <li *ngFor="let item of tuesday | async;">
+        {{ item.breakfast | json }}
+        <br>
+        {{ item.lunch | json }}
+        <br>
+        {{ item.dinner | json }}
+    </li>
+  </ul>
+  <br>
+  <b>Wednesday</b>
+  <ul>
+      <li *ngFor="let item of wednesday | async;">
+         {{ item.breakfast | json }}
+         <br>
+         {{ item.lunch | json }}
+         <br>
+         {{ item.dinner | json }}
+      </li>
+    </ul>
+    <br>
+    <b>Thursday</b>
+    <ul>
+        <li *ngFor="let item of thursday | async;">
+           {{ item.breakfast | json }}
+           <br>
+           {{ item.lunch | json }}
+           <br>
+           {{ item.dinner | json }}
+        </li>
+      </ul>
+      <br>
+      <b>Friday</b>
+      <ul>
+          <li *ngFor="let item of friday | async;">
+             {{ item.breakfast | json }}
+             <br>
+             {{ item.lunch | json }}
+             <br>
+             {{ item.dinner | json }}
+          </li>
+        </ul>
+        <br>
+        <b>Saturday</b>
+    <ul>
+        <li *ngFor="let item of saturday | async;">
+           {{ item.breakfast | json }}
+           <br>
+           {{ item.lunch | json }}
+           <br>
+           {{ item.dinner | json }}
+        </li>
+      </ul>
+      <br>
+      <b>Sunday</b>
+    <ul>
+        <li *ngFor="let item of sunday | async;">
+           {{ item.breakfast | json }}
+           <br>
+           {{ item.lunch | json }}
+           <br>
+           {{ item.dinner | json }}
+        </li>
+      </ul>
+      <br>
+</ion-content>
