@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import firebase from 'firebase';
 import { TabsPage } from '../pages/tabs/tabs';
+import { FCM } from '@ionic-native/fcm';
 
 @Component({
   templateUrl: 'app.html'
@@ -13,7 +14,7 @@ export class MyApp {
   rootPage:any = TabsPage;
   public zone:NgZone;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(private fcm: FCM,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     this.zone = new NgZone({});
     const config = {
       apiKey: 'AIzaSyCNtXbDYVBs--gprMft0Aeep_Ox0X4j2Ic',
@@ -36,6 +37,22 @@ export class MyApp {
     });
 
     platform.ready().then(() => {
+            //Notifications
+            this.fcm.subscribeToTopic('all');
+            this.fcm.getToken().then(token=>{
+                console.log(token);
+            })
+            this.fcm.onNotification().subscribe(data=>{
+              if(data.wasTapped){
+                console.log("Received in background");
+              } else {
+                console.log("Received in foreground");
+              };
+            })
+            this.fcm.onTokenRefresh().subscribe(token=>{
+              console.log(token);
+            });
+            //end notifications.
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();

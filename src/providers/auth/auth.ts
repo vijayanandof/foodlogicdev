@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
 import firebase from 'firebase';
+import { Storage } from '@ionic/storage';
 
 @Injectable()
 export class AuthProvider {
-
-  constructor() {}
+  count:any;
+  constructor(private storage: Storage) {
+  }
 
   /**
    * loginUser takes in an email and password and signs the user into the application.
    */
   loginUser(email: string, password: string): Promise<any> {
+    this.storage.set("email", email);
     return firebase.auth().signInWithEmailAndPassword(email, password);
   }
-
+  
   /**
    * signupUser takes in an email and password and does 3 things:
    * 1. It creates the new user.

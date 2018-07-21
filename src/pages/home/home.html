@@ -1,24 +1,28 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>
-      Today's Menu
+        {{daystatus}}'s Menu
     </ion-title>
     <ion-buttons end>
       <button ion-button icon-only color="royal" (click)="logMeOut()">
-        <ion-icon  ios="ios-log-out" md="md-log-out"></ion-icon>
+        Logout<ion-icon  ios="ios-log-out" md="md-log-out"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
+
+
+
 <ion-content padding>
- <h3>Hi! Happy {{today}}!</h3> <br>
- Today's menu is,
+ <h3>Hi! Happy {{today}}!</h3>
+ {{daystatus}}'s menu is,
  <br>
  <ion-card>
   <ion-card-header>
  <b>Breakfast</b>
 </ion-card-header>
+
 <ion-card-content>
  <ul>
   <li *ngFor="let item of breakfast | async">
@@ -39,6 +43,19 @@
 </ul>
 </ion-card-content>
 </ion-card>
+
+<ion-card>
+    <ion-card-header>
+  <b>Snacks</b>
+  </ion-card-header>
+  <ion-card-content>
+  <ul>
+   <li *ngFor="let item of snacks | async">
+      {{ item }}
+   </li>
+  </ul>
+  </ion-card-content>
+  </ion-card>
 <ion-card>
   <ion-card-header>
 <b>Dinner</b>
@@ -51,4 +68,7 @@
 </ul>
 </ion-card-content>
 </ion-card>
+<ion-fab bottom right> 
+    <button ion-fab (click)="nextdaymenu()"><ion-icon name="swap"></ion-icon></button>
+  </ion-fab>
 </ion-content>

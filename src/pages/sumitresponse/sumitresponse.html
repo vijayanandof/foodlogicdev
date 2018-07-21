@@ -6,13 +6,39 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>sumitresponse</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Submit response</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <div *ngIf="responseSubmitted;else othercontent">
+    <div>
+Select all those you will eat tomorrow :)
+<ion-item>
+  <ion-label>Breakfast</ion-label>
+  <ion-checkbox [(ngModel)]="breakfast"></ion-checkbox>
+</ion-item>
 
+<ion-item>
+  <ion-label>Lunch</ion-label>
+  <ion-checkbox [(ngModel)]="lunch" ></ion-checkbox>
+</ion-item>
+
+<ion-item>
+  <ion-label>Dinner</ion-label>
+  <ion-checkbox [(ngModel)]="dinner" ></ion-checkbox>
+</ion-item>
+<br>
+<button ion-button round (click)="submitResponses()" >Submit Response</button>
+</div>
+
+</div>
+
+<ng-template #othercontent>You have already submitted the response for tomorrow!</ng-template>
+  
+    
+  
 </ion-content>

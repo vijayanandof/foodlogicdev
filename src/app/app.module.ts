@@ -12,9 +12,18 @@ import { AboutPage } from '../pages/about/about';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environments';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 import { SumitresponsePage } from '../pages/sumitresponse/sumitresponse';
 import { ViewresponsePage } from '../pages/viewresponse/viewresponse';
+import { DeveloperPage } from '../pages/developer/developer';
+
+import { IonicStorageModule } from '@ionic/storage';
+import {DatePipe} from '@angular/common';
+import { Clipboard } from '@ionic-native/clipboard';
+import { FCM } from '@ionic-native/fcm';
+import { CallNumber } from '@ionic-native/call-number';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -22,13 +31,15 @@ import { ViewresponsePage } from '../pages/viewresponse/viewresponse';
     TabsPage,
     AboutPage,
     SumitresponsePage,
-    ViewresponsePage
+    ViewresponsePage,
+    DeveloperPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -37,13 +48,19 @@ import { ViewresponsePage } from '../pages/viewresponse/viewresponse';
     TabsPage,
     AboutPage,
     ViewresponsePage,
-    SumitresponsePage
+    SumitresponsePage,
+    DeveloperPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider
+    AuthProvider,
+    DatePipe,
+    Clipboard,
+    FCM,
+    CallNumber,
+    LocalNotifications
   ]
 })
 export class AppModule {}

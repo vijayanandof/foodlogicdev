@@ -5,14 +5,46 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>viewresponse</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Insights</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only color="royal" (click)="developer()">
+            <ion-icon ios="ios-code-working" md="md-code-working"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
+<ion-item>
+  <ion-label>The responses for the date</ion-label>
+  <ion-datetime displayFormat="DD/MM/YYYY" min="2018" max="2020-10-31" placeholder = "Click here to select" (ionChange)="updateResponseListing()" [(ngModel)]="responseDate"></ion-datetime>
+</ion-item>
+<ion-list>
+    <ion-list-header>
+       <b>Responses</b> 
+      </ion-list-header>
+    <ion-item>
+      <ion-icon name="sunny" item-start></ion-icon>
+      Breakfast: <ion-badge  item-end>{{(breakfast)}}</ion-badge>
+    </ion-item>
+    <ion-item>
+        <ion-icon name="partly-sunny" item-start></ion-icon>
+          Lunch: <ion-badge item-end>{{(lunch)}}</ion-badge>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="cloudy-night" item-start></ion-icon>
+          Dinner: <ion-badge item-end>{{(dinner)}}</ion-badge>
+        </ion-item>
+        <ion-item>
+            <button ion-button (click)='copyResponseListing();' item-end>Copy</button>
+        </ion-item>
+  </ion-list>
 
+  *Analytics is done with the data for Future Insights.
+
+  <ion-fab bottom right> 
+      <button ion-fab (click)="call()"><ion-icon name="call"></ion-icon></button>
+    </ion-fab>
 </ion-content>
