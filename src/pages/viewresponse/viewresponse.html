@@ -23,7 +23,7 @@
 </ion-item>
 <ion-list>
     <ion-list-header>
-       <b>Responses</b> 
+       <b>Responses</b>
       </ion-list-header>
     <ion-item>
       <ion-icon name="sunny" item-start></ion-icon>
@@ -34,6 +34,10 @@
           Lunch: <ion-badge item-end>{{(lunch)}}</ion-badge>
       </ion-item>
       <ion-item>
+            <ion-icon name="cloudy" item-start></ion-icon>
+              Snack: <ion-badge item-end>{{(snack)}}</ion-badge>
+          </ion-item>
+        <ion-item>
           <ion-icon name="cloudy-night" item-start></ion-icon>
           Dinner: <ion-badge item-end>{{(dinner)}}</ion-badge>
         </ion-item>
@@ -44,7 +48,7 @@
 
   *Analytics is done with the data for Future Insights.
 
-  <ion-fab bottom right> 
+  <ion-fab bottom right>
       <button ion-fab (click)="call()"><ion-icon name="call"></ion-icon></button>
     </ion-fab>
 </ion-content>

@@ -28,6 +28,11 @@ Select all those you will eat tomorrow :)
 </ion-item>
 
 <ion-item>
+  <ion-label>Snacks</ion-label>
+  <ion-checkbox [(ngModel)]="snack" ></ion-checkbox>
+</ion-item>
+
+<ion-item>
   <ion-label>Dinner</ion-label>
   <ion-checkbox [(ngModel)]="dinner" ></ion-checkbox>
 </ion-item>
@@ -37,8 +42,19 @@ Select all those you will eat tomorrow :)
 
 </div>
 
-<ng-template #othercontent>You have already submitted the response for tomorrow!</ng-template>
-  
-    
-  
+<ng-template #othercontent >
+  <div *ngIf="feedbackSubmitted;else subhey">
+  <ion-item>
+    <ion-label>Please submit on the food served so we can help improve ourselves!</ion-label>
+    <ion-input type="text" [(ngModel)]="feedback" name="feedback"></ion-input>
+  </ion-item>
+  <button ion-button round (click)="submitFeedback()" >Submit feedback</button>
+</div>
+</ng-template>
+
+<ng-template #subhey>
+  <ion-label>Thanks for the feedback! See you again tomorrow!</ion-label>
+</ng-template>
+
+
 </ion-content>

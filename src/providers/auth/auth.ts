@@ -15,7 +15,7 @@ export class AuthProvider {
     this.storage.set("email", email);
     return firebase.auth().signInWithEmailAndPassword(email, password);
   }
-  
+
   /**
    * signupUser takes in an email and password and does 3 things:
    * 1. It creates the new user.
@@ -32,6 +32,8 @@ export class AuthProvider {
       });
     });
   }
+
+  
 
   /**
    * resetPassword takes the email address as a string and sends the email with the reset password

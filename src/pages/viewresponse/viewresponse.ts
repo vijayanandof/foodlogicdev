@@ -25,6 +25,7 @@ export class ViewresponsePage {
   breakfast:any;
   lunch:any;
   dinner:any;
+  snack:any;
   constructor(private callNumber: CallNumber,private alertCtrl: AlertController,private clipboard: Clipboard,public navCtrl: NavController, public navParams: NavParams,public db: AngularFireDatabase) {
     this.dataAccess = db;
   }
@@ -39,8 +40,9 @@ export class ViewresponsePage {
     this.dataAccess.object('DailyLog/'+this.responseDate+'/Breakfast').valueChanges().subscribe(x => this.breakfast=x);
     this.dataAccess.object('DailyLog/'+this.responseDate+'/Lunch').valueChanges().subscribe(x => this.lunch=x);
     this.dataAccess.object('DailyLog/'+this.responseDate+'/Dinner').valueChanges().subscribe(x => this.dinner=x);
+    this.dataAccess.object('DailyLog/'+this.responseDate+'/Snack').valueChanges().subscribe(x => this.snack=x);
 
-    if(this.breakfast!=undefined && this.lunch!=undefined && this.dinner!=undefined){
+    if(this.breakfast!=undefined && this.lunch!=undefined && this.dinner!=undefined && this.snack!=undefined){
       let alert = this.alertCtrl.create({
         title: 'Not data found for this date!',
         subTitle: "Try another!",
@@ -55,9 +57,8 @@ export class ViewresponsePage {
     this.dataAccess.object('DailyLog/'+this.responseDate+'/Breakfast').valueChanges().subscribe(x => this.breakfast=x);
     this.dataAccess.object('DailyLog/'+this.responseDate+'/Lunch').valueChanges().subscribe(x => this.lunch=x);
     this.dataAccess.object('DailyLog/'+this.responseDate+'/Dinner').valueChanges().subscribe(x => this.dinner=x);
-    this.clipboard.copy("Breakfast Responses:"+this.breakfast+"\n"+"Lunch Responses:"+this.lunch+"\n"+"Dinner Responses:"+this.dinner);
-    console.log("Breakfast Responses:"+this.breakfast+"\n"+"Lunch Responses:"+this.lunch+"\n"+"Dinner Responses:"+this.dinner);
-
+    this.dataAccess.object('DailyLog/'+this.responseDate+'/Snack').valueChanges().subscribe(x => this.snack=x);
+    this.clipboard.copy("Breakfast Responses:"+this.breakfast+"\n"+"Lunch Responses:"+this.lunch+"\n"+"Dinner Responses:"+this.dinner+"\n"+"Snack Responses:"+this.snack);
     if(this.breakfast==undefined){
       let alert = this.alertCtrl.create({
         title: 'Please,Click Again!',
@@ -76,8 +77,6 @@ export class ViewresponsePage {
     }
 
     call(){
-
-
       let alert = this.alertCtrl.create({
         title: 'Do you really want to call Mr.Guna Sekaran?',
         message: 'Call and inform when you cant update or for bulk response to prepare food!',
