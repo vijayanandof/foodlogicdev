@@ -16,7 +16,7 @@
 <ion-content padding>
   <div *ngIf="responseSubmitted;else othercontent">
     <div>
-Select all those you will eat tomorrow :)
+Select all those you will eat tomorrow
 <ion-item>
   <ion-label>Breakfast</ion-label>
   <ion-checkbox [(ngModel)]="breakfast"></ion-checkbox>
@@ -44,16 +44,16 @@ Select all those you will eat tomorrow :)
 
 <ng-template #othercontent >
   <div *ngIf="feedbackSubmitted;else subhey">
-  <ion-item>
-    <ion-label>Please submit on the food served so we can help improve ourselves!</ion-label>
-    <ion-input type="text" [(ngModel)]="feedback" name="feedback"></ion-input>
-  </ion-item>
+
+    Please submit your feedback to help us serve you better!
+    <ion-input type="text" placeholder="Your valuble feedback here" [(ngModel)]="feedback" name="feedback"></ion-input>
+
   <button ion-button round (click)="submitFeedback()" >Submit feedback</button>
 </div>
 </ng-template>
 
 <ng-template #subhey>
-  <ion-label>Thanks for the feedback! See you again tomorrow!</ion-label>
+  Thanks for the feedback! See you again tomorrow!
 </ng-template>
 
 

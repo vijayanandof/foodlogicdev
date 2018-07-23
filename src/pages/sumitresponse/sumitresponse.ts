@@ -89,10 +89,13 @@ export class SumitresponsePage {
 
   submitFeedback(){
     let feedback = this.feedback;
+
+    var date = new Date(new Date().getTime());
+    var currentDate = this.datePipe.transform(date,"yyyy-MM-dd");
     let userName = this.userProfile.__zone_symbol__value.slice(0,this.userProfile.__zone_symbol__value.indexOf('@'));
     let data = {};
     data[userName] = feedback;
-    this.dataAccess.object('DailyFeedback/'+this.currentDate).update(data);
+    this.dataAccess.object('DailyFeedback/'+currentDate).update(data);
     this.feedbackSubmitted = false;
     let alert = this.alertCtrl.create({
       title: 'Submitted!',
