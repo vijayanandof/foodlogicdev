@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { AuthProvider } from '../../providers/auth/auth';
+import { AngularFireDatabase} from 'angularfire2/database';
+import { Observable } from 'rxjs';
 /**
  * Generated class for the EditfoodmenuPage page.
  *
@@ -14,12 +16,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'editfoodmenu.html',
 })
 export class EditfoodmenuPage {
+  users: Observable<any[]>;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public authProvider: AuthProvider,public db: AngularFireDatabase) {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.users = this.db.list('userProfile').valueChanges();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditfoodmenuPage');
   }
 
+  logMeOut() {
+    this.authProvider.logoutUser().then( () => {
+    });
+  }
 }

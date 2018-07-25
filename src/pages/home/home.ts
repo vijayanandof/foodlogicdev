@@ -24,6 +24,9 @@ export class HomePage {
   dinner:Observable<any[]>;
   daystatus:String;
   flag:boolean;
+
+  
+
   constructor(public navCtrl: NavController, public authProvider: AuthProvider,public db: AngularFireDatabase,private localNotifications: LocalNotifications) {
     
     // Schedule a single notification

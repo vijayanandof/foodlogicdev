@@ -18,6 +18,10 @@ import { SumitresponsePage } from '../pages/sumitresponse/sumitresponse';
 import { ViewresponsePage } from '../pages/viewresponse/viewresponse';
 import { DeveloperPage } from '../pages/developer/developer';
 
+import { ChartreviewPage } from '../pages/chartreview/chartreview';
+import { EditfoodmenuPage } from '../pages/editfoodmenu/editfoodmenu';
+import { UserlistPage } from '../pages/userlist/userlist';
+
 import { IonicStorageModule } from '@ionic/storage';
 import {DatePipe} from '@angular/common';
 import { Clipboard } from '@ionic-native/clipboard';
@@ -32,7 +36,10 @@ import { CallNumber } from '@ionic-native/call-number';
     AboutPage,
     SumitresponsePage,
     ViewresponsePage,
-    DeveloperPage
+    DeveloperPage,
+    ChartreviewPage,
+    EditfoodmenuPage,
+    UserlistPage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +56,10 @@ import { CallNumber } from '@ionic-native/call-number';
     AboutPage,
     ViewresponsePage,
     SumitresponsePage,
-    DeveloperPage
+    DeveloperPage,
+    ChartreviewPage,
+    EditfoodmenuPage,
+    UserlistPage
   ],
   providers: [
     StatusBar,

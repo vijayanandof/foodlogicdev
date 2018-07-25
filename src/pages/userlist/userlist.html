@@ -7,12 +7,23 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>userlist</ion-title>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>Users</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    {{(users | async)?.length}} users as of now!
+    <ion-list>
 
+        <ion-item *ngFor="let user of users | async">
+          {{user.email}}
+        </ion-item>
+      
+      </ion-list>
+      
 </ion-content>

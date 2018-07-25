@@ -1,20 +1,18 @@
 import { Component } from '@angular/core';
 
+import { ChartreviewPage } from '../chartreview/chartreview';
+import { EditfoodmenuPage } from '../editfoodmenu/editfoodmenu';
+import { UserlistPage } from '../userlist/userlist';
 
-import { HomePage } from '../home/home';
-import { AboutPage } from '../about/about';
-
-import { SumitresponsePage } from '../sumitresponse/sumitresponse';
-import { ViewresponsePage } from '../viewresponse/viewresponse';
 @Component({
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
 
-  tab1Root = HomePage;
-  tab2Root = AboutPage;
-  tab3Root = SumitresponsePage;
-  tab4Root = ViewresponsePage;
+  tab1Root = EditfoodmenuPage;
+  tab2Root = ChartreviewPage;
+  tab3Root = UserlistPage;
+
   constructor() {
 
   }
