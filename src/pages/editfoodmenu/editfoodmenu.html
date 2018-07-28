@@ -10,7 +10,7 @@
       <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
-    <ion-title>editfoodmenu</ion-title>
+    <ion-title>Edit food menu</ion-title>
     <ion-buttons end>
         <button ion-button icon-only color="royal" (click)="logMeOut()">
           Logout<ion-icon  ios="ios-log-out" md="md-log-out"></ion-icon>
@@ -21,6 +21,95 @@
 </ion-header>
 
 
-<ion-content padding>
 
+<ion-content padding>
+  <ion-item>
+      <ion-label>Choose a day</ion-label>
+      <ion-select [(ngModel)]="day" multiple="false" (ionChange)="onSelectChange($event)">
+        <ion-option value="Monday">Monday</ion-option>
+        <ion-option value="Tuesday">Tuesday</ion-option>
+        <ion-option value="Wednesday">Wednesday</ion-option>
+        <ion-option value="Thursday">Thursday</ion-option>
+        <ion-option value="Friday">Friday</ion-option>
+        <ion-option value="Saturday">Saturday</ion-option>
+        <ion-option value="Sunday">Sunday</ion-option>
+      </ion-select>
+    </ion-item>
+    <br>
+
+
+
+<div *ngIf="flag">
+  <b text-center>{{day}}'s Menu</b>
+<ion-card>
+<ion-card-header>
+  <b>Breakfast</b>
+ </ion-card-header>
+ <ion-card-content>
+    <ion-list>
+        <ion-item *ngFor="let item of breakfast | async; index as i;last as last">
+           <ion-item >
+               {{item}}
+               <button ion-button (click)='editItem(item,i,"/breakfast")'>Edit</button>
+               <button *ngIf="last"  ion-button color="danger" (click)='deleteItem(item,i,"/breakfast")'>Delete</button>
+           </ion-item>
+        </ion-item>
+       </ion-list>
+       <button ion-button (click)='addItem("/breakfast")'>Add</button>
+ </ion-card-content>
+ </ion-card>
+
+ <ion-card>
+    <ion-card-header>
+      <b>Lunch</b>
+     </ion-card-header>
+     <ion-card-content>
+        <ion-list>
+            <ion-item *ngFor="let item of lunch | async; index as i;last as last">
+               <ion-item>
+                   {{item}}
+                   <button ion-button (click)='editItem(item,i,"/lunch")'>Edit</button>
+               <button *ngIf="last" ion-button color="danger" (click)='deleteItem(item,i,"/lunch")'>Delete</button>
+               </ion-item>
+            </ion-item>
+           </ion-list>
+           <button ion-button (click)='addItem("/lunch")'>Add</button>
+     </ion-card-content>
+     </ion-card>
+     <ion-card>
+        <ion-card-header>
+          <b>Snacks</b>
+         </ion-card-header>
+         <ion-card-content>
+            <ion-list>
+                <ion-item *ngFor="let item of snacks | async; index as i;last as last">
+                   <ion-item>
+                       {{item}}
+                       <button ion-button (click)='editItem(item,i,"/snacks")'>Edit</button>
+                      <button *ngIf="last" ion-button color="danger" (click)='deleteItem(item,i,"/snacks")'>Delete</button>
+                   </ion-item>
+                </ion-item>
+               </ion-list>
+               <button ion-button (click)='addItem("/snacks")'>Add</button>
+         </ion-card-content>
+         </ion-card>
+     <ion-card>
+        <ion-card-header>
+          <b>Dinner</b>
+         </ion-card-header>
+         <ion-card-content>
+            <ion-list>
+                <ion-item *ngFor="let item of dinner | async; index as i;last as last">
+                   <ion-item>
+                       {{item}}
+                       <button ion-button (click)='editItem(item,i,"/dinner")'>Edit</button>
+               <button *ngIf="last" ion-button color="danger" (click)='deleteItem(item,i,"/dinner")'>Delete</button>
+                   </ion-item>
+                </ion-item>
+               </ion-list>
+               <button ion-button (click)='addItem("/dinner")'>Add</button>
+         </ion-card-content>
+         </ion-card>
+         
+</div>
 </ion-content>
